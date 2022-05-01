@@ -83,20 +83,30 @@
 
                 //input a eriştik
                 let input = document.querySelector("input#task");
+
                 //input içindeki veriyi aldık
                 let value = input.value;
 
-                //objemizin içine ekledik
-                taskObject.value = value;
+                if (value.trim() == "") {
+                    $(".toast.error").toast("show");
+                } else {
 
-                //task objemizi listeye ekledik.
-                tasks.push(taskObject);
+                    //objemizin içine ekledik
+                    taskObject.value = value;
 
-                //listemizi local storage de güncelledik
-                updateLocalStorageForTasks();
+                    //task objemizi listeye ekledik.
+                    tasks.push(taskObject);
 
-                //listemizin en sonra halini ekrana yazdırdık.
-                getTasks();
+                    //listemizi local storage de güncelledik
+                    updateLocalStorageForTasks();
+
+                    //listemizin en sonra halini ekrana yazdırdık.
+                    getTasks();
+
+                    $(".toast.success").toast("show");
+
+                }
+
             }
 
             function getTasks() {
@@ -177,7 +187,13 @@
         </script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</body>
+</div>
 </body>
 
 </html>
